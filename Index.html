@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Compassion Corporation of Kingston (CCK)</title>
+  <style>
+      /* Global Reset & Base Styles */
+      *, *::before, *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      html {
+          scroll-behavior: smooth;
+      }
+      body {
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          background: #f0f4f8;
+          color: #333;
+          line-height: 1.6;
+      }
+
+      /* Header Section */
+      header {
+          background: linear-gradient(135deg, #cc9200, #cc0000);
+          color: #0e2202;
+          text-align: center;
+          padding: 2rem 1rem;
+          position: relative;
+      }
+      header img {
+          max-width: 120px;
+          border-radius: 50%;
+          border: 2px solid #050505;
+          margin-bottom: 1rem;
+      }
+      header h1 {
+          font-size: 2.5rem;
+          margin-bottom: 0.5rem;
+      }
+      header p {
+          font-size: 1.1rem;
+          opacity: 0.9;
+      }
+
+      /* Navigation Menu */
+      nav {
+          background: #cc9200;
+          text-align: center;
+          padding: 0.8rem 0;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      nav a {
+          color: #050505;
+          margin: 0 15px;
+          text-decoration: none;
+          font-weight: bold;
+          padding: 8px 12px;
+          border-radius: 4px;
+          transition: background 0.3s ease;
+      }
+      nav a:hover {
+          background: rgba(255,255,255,0.2);
+      }
+
+      .fade-in-image {
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+      }
+
+      .fade-in-image img {
+          width: 100%;
+          max-height: 400px;
+          object-fit: cover;
+      }
+
+      /* Start fade-in effect when page loads */
+      body.loaded .fade-in-image {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+
+
+
+
+
+      /* Container for main content */
+      .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: 2rem auto;
+      }
+
+      /* Section Styling */
+      section {
+          background: #ecb52f;
+          margin-bottom: 2rem;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      section h2 {
+          margin-bottom: 1rem;
+          color: #050505;
+          font-size: 2rem;
+          border-bottom: 2px solid #6a0909;
+          display: inline-block;
+          padding-bottom: 0.3rem;
+      }
+      #about p {
+          font-size: 1.1rem;
+          text-align: center;
+          padding: 0 10%;
+          margin-top: 1rem;
+      }
+
+      /* Grid Layout for Officials & Activities */
+      .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 1.5rem;
+          margin-top: 1.5rem;
+      }
+
+      .card {
+          background: #f9f9f9;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+      .card .card-content {
+          padding: 1.2rem;
+      }
+      .card h3 {
+          margin-bottom: 0.5rem;
+          color: #0066cc;
+      }
+      .card p {
+          font-size: 0.95rem;
+          color: #555;
+      }
+
+      /* Links and Buttons */
+      #contact a,
+      .btn {
+          color: #0066cc;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.3s ease;
+      }
+      #contact a:hover,
+      .btn:hover {
+          color: #004d99;
+      }
+      .btn {
+          display: inline-block;
+          background: #004d99;
+          color: #fff;
+          padding: 0.75rem 1.5rem;
+          border-radius: 25px;
+          margin-top: 1rem;
+      }
+
+      /* Volunteer Form Styles */
+      form label {
+          display: block;
+          margin-top: 1rem;
+          font-weight: bold;
+          color: #004d99;
+      }
+      form input[type="text"],
+      form input[type="email"],
+      form textarea {
+          width: 100%;
+          padding: 0.75rem;
+          margin-top: 0.5rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+      }
+      form input[type="submit"] {
+          background: #0066cc;
+          color: #fff;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          margin-top: 1.5rem;
+          cursor: pointer;
+          border-radius: 25px;
+          transition: background 0.3s;
+      }
+      form input[type="submit"]:hover {
+          background: #004d99;
+      }
+
+      /* Footer */
+      footer {
+          background: #0e2202;
+          color: #fff;
+          text-align: center;
+          padding: 1rem;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+          header h1 {
+              font-size: 2rem;
+          }
+          header p {
+              font-size: 0.9rem;
+          }
+      }
+  </style>
+</head>
+<body>
+<header>
+  <!-- Replace "club-logo.png" with the actual logo file -->
+  <img src="Logo.png" alt="CCK Logo">
+  <h1 style="font-family: 'Sitka Text'">The Compassion Corporation of Kingston (CCK)</h1>
+
+</header>
+
+<nav style="font-family: 'Comic Sans MS'">
+  <a href="#about">About Us</a>
+  <a href="#officials">Officials</a>
+  <a href="#activities">Activities</a>
+  <a href="#contact">Contact</a>
+  <a href="#volunteer-form">Volunteer</a>
+</nav>
+
+<div class="fade-in-image">
+  <img src="image.png" alt="CCK Community">
+</div>
+
+
+
+<div class="container">
+  <!-- About Section -->
+  <section id="about">
+    <h2>About CCK</h2>
+    <p>
+      The Compassion Corporation of Kingston (CCK) was established many years ago with the mission to take an active interest in the civic, cultural, social, and moral welfare of the community. We strive to nurture compassion, drive positive change, and empower our citizens to create a thriving, inclusive and vibrant community.
+    </p>
+  </section>
+
+  <!-- Officials Section -->
+  <section id="officials">
+    <h2>Our Officials</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-content">
+          <h3>Nicolas Jackson</h3>
+          <p><strong>President</strong></p>
+          <p>Nicolas leads CCK with a vision of community growth and empowerment, inspiring transformative social change.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Robert Sanchez</h3>
+          <p><strong>Vice-President</strong></p>
+          <p>Robert is dedicated to operational excellence and strategic planning to enhance community engagement.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Reece James</h3>
+          <p><strong>Treasurer</strong></p>
+          <p>With meticulous attention to detail, Reece manages our finances to ensure every cent is used for community betterment.</p>
+        </div>
+      </div>
+      <!-- Additional official cards can be added here -->
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section id="activities">
+    <h2>Our Activities</h2>
+    <p>
+      At CCK, we are passionate about making a difference. Our programs include community outreach, cultural events, civic engagement workshops, and more.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-content">
+          <h3>Community Outreach</h3>
+          <p>Programs dedicated to supporting underprivileged populations while enhancing community solidarity.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Cultural Events</h3>
+          <p>Organizing events to celebrate and preserve our unique cultural heritage through art, music, and traditions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Civic Engagement</h3>
+          <p>Hosting forums and workshops to encourage active and ethical participation in civic matters.</p>
+        </div>
+      </div>
+      <!-- Additional activity cards can be added here -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      We welcome inquiries, suggestions, and collaborations. Please reach out through the channels below:
+    </p>
+    <p>Email: <a href="mailto:info@cck-kingston.org">info@cck-kingston.org</a></p>
+    <p>
+      Visit our partner site for additional community resources:
+      <a href="https://www.examplecommunitysite.com" target="_blank">examplecommunitysite.com</a>
+    </p>
+    <a href="#volunteer-form" class="btn">Volunteer With Us</a>
+  </section>
+
+  <!-- Volunteer Form Section -->
+  <section id="volunteer-form">
+    <h2>Volunteer With Us</h2>
+    <form action="submit_form.php" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">How can you help?</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 The Compassion Corporation of Kingston (CCK). All Rights Reserved.</p>
+</footer>
+</body>
+<script> document.addEventListener("DOMContentLoaded", function() {
+  document.body.classList.add("loaded");
+});
+
+
+</script>
+
+</html>
